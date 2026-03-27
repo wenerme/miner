@@ -1,0 +1,60 @@
+{
+	"name": "miner",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"scripts": {
+		"build": "waku build",
+		"deploy": "waku build && wrangler deploy",
+		"dev": "waku dev --port 3060",
+		"start": "waku start",
+		"test:mineweb:browser": "tsx ./scripts/mineweb-vitest-browser-run.ts src/tests/MineWebWebGL.browser.test.ts",
+		"test:mineweb:browser:agent": "tsx ./scripts/mineweb-browser-regression.ts",
+		"test:mineweb:browser:agent:llm": "MINEWEB_LLM_REVIEW_AUTOSTART=1 tsx ./scripts/mineweb-browser-regression.ts",
+		"test:mineweb:browser:daemon": "MINEWEB_VITEST_BROWSER_WS_ENDPOINT=ws://127.0.0.1:9333/ vitest run -c vitest.browser.config.ts src/tests/MineWebWebGL.browser.test.ts",
+		"test:mineweb:browser:render": "tsx ./scripts/mineweb-vitest-browser-run.ts src/tests/MineWebRender.browser.test.tsx",
+		"test:mineweb:browser:server": "playwright run-server --host 127.0.0.1 --port 9333",
+		"test:mineweb:llm-review": "tsx ./scripts/mineweb-llm-review.ts",
+		"test:mineweb:node": "vitest run src/tests/MineWebEngine.test.ts src/tests/MineWebSimulationHarness.test.ts",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"hono": "^4.12.8",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"react-server-dom-webpack": "^19.2.4",
+		"tailwind-merge": "^3.5.0",
+		"three": "^0.183.2",
+		"valtio": "^2.3.1",
+		"waku": "1.0.0-alpha.5",
+		"zod": "^4.3.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.9",
+		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+		"@tailwindcss/vite": "^4.2.2",
+		"@types/jsdom": "^28.0.1",
+		"@types/node": "^25.5.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@types/three": "^0.183.1",
+		"@vitejs/plugin-react": "^6.0.1",
+		"@vitejs/plugin-react-swc": "^4.3.0",
+		"@vitest/browser-playwright": "^4.1.2",
+		"daisyui": "^5.5.19",
+		"jsdom": "^29.0.1",
+		"prettier": "^3.8.1",
+		"prettier-plugin-pkg": "^0.22.0",
+		"prettier-plugin-tailwindcss": "^0.7.2",
+		"tailwindcss": "^4.2.2",
+		"tsx": "^4.21.0",
+		"typescript": "^6.0.2",
+		"vite": "^8.0.3",
+		"vitest": "^4.1.0",
+		"wrangler": "^4.78.0"
+	}
+}

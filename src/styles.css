@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+	font-family: "Monocraft";
+	src: url("/fonts/Monocraft.ttc") format("collection");
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: "Geist var", "Geist", system-ui, sans-serif;
+}
+
+@plugin "daisyui" {
+	themes: wener --default;
+}
+
+@plugin "daisyui/theme" {
+	name: "wener";
+	default: true;
+	prefersdark: false;
+	color-scheme: light;
+
+	/* Base - sky tones */
+	--color-base-100: oklch(0.9785 0.0047 247.86);
+	--color-base-200: oklch(0.9513 0.0134 236.62);
+	--color-base-300: oklch(0.901 0.0304 233.99);
+	--color-base-content: oklch(0.2332 0.0069 264.69);
+
+	/* Primary - sky-500 */
+	--color-primary: oklch(0.5556 0.1898 241.32);
+	--color-primary-content: oklch(0.9713 0.0143 236.62);
+
+	/* Secondary - indigo-500 */
+	--color-secondary: oklch(0.5358 0.1696 265.75);
+	--color-secondary-content: oklch(0.9671 0.0083 274.72);
+
+	/* Accent - cyan-500 */
+	--color-accent: oklch(0.5198 0.1401 193.18);
+	--color-accent-content: oklch(0.9644 0.0173 192.46);
+
+	/* Neutral - slate-600 */
+	--color-neutral: oklch(0.4393 0.0124 264.36);
+	--color-neutral-content: oklch(0.9715 0.0043 264.54);
+
+	/* Status colors */
+	--color-info: oklch(0.61 0.11 222);
+	--color-info-content: oklch(0.98 0.01 222);
+	--color-success: oklch(0.648 0.15 160);
+	--color-success-content: oklch(0.98 0.01 160);
+	--color-warning: oklch(0.75 0.18 85);
+	--color-warning-content: oklch(0.2 0.05 85);
+	--color-error: oklch(0.58 0.22 27);
+	--color-error-content: oklch(0.98 0.01 27);
+
+	/* border radius */
+	--radius-selector: 0.5rem;
+	--radius-field: 0.25rem;
+	--radius-box: 0.5rem;
+
+	/* base sizes */
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+
+	/* border size */
+	--border: 1px;
+
+	/* effects */
+	--depth: 1;
+	--noise: 0;
+}
+
+@layer components {
+	.sheet-transition {
+		transition: transform 0.4s cubic-bezier(0.185, 0.285, 0, 1.05);
+	}
+	.sheet-dragging {
+		transition: none;
+	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}

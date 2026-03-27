@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.wrangler/
+.agents/
+.vitest-attachments/
+.tmp/
+src/tests/
+justfile
+Makefile
+wrangler.toml
+AGENTS.local.md
+.idea
